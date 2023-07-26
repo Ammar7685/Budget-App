@@ -26,14 +26,6 @@ class BudgetPlan:
         else:
             print("Invalid deposit amount.")
 
-    def withdraw(self, amount):
-        if 0 < amount <= self.balance:
-            self.balance -= amount
-            self.transactions.append(f"Withdrew {amount} from {self.category} budget.")
-            print(f"Withdrew {amount} from {self.category} budget.")
-        else:
-            print("Insufficient funds or invalid withdrawal amount.")
-
     def transfer(self, other_category, amount):
         if self == other_category:
             print("Cannot transfer to the same category.")
@@ -49,7 +41,7 @@ class BudgetPlan:
             print("Invalid transfer amount or insufficient funds.")
 
     def add_expense(self, expense_name, amount):
-        if amount > 0 and amount <= self.balance:
+        if 0 < amount <= self.balance:
             self.balance -= amount
             self.expenses.append((expense_name, amount))
             print(f"Added expense '{expense_name}' of {amount} to {self.category} budget.")
