@@ -8,9 +8,6 @@ class budgetplan:
     def get_balance(self):
         return self.balance
 
-    def __repr__(self):
-        return f"{self.category} budget balance: ${self.balance:.2f}"
-
     def deposit(self, amount):
         if amount > 0:
             self.balance += amount
